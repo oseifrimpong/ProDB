@@ -1,0 +1,35 @@
+
+<%= link_to "Log Out", session_path("current"), method: "delete" %>
+
+<h1>
+Below are the list of Students
+</h1>
+
+<h1>Student List</h1>
+
+<table>
+	<tr>
+		<th> First Name</th>
+		<th> Last Name</th>
+		<th> Sex</th>
+		<th> Entrance Age</th>
+		<th> Entrance Year</th>
+		<th> Class</th>
+	</tr>
+
+	<% @students.each do |student| %>
+		<tr>
+			<td><%= student.First_Name %></td>
+			<td><%= student.Last_Name %></td>
+			<td><%= student.Sex %></td>
+			<td><%= student.Entrance_Age %></td>
+			<td><%= student.Entrance_Year %></td>
+			<td><%= student.s_class %></td>
+			<td><%= link_to 'Edit', edit_student_path(student) %></td>
+			<td><%= link_to 'Delete', student, confirm: 'Are you sure?', method: :delete %></td>
+		</tr>
+		<% end %>
+</table>
+
+
+ 

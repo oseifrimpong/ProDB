@@ -1,0 +1,51 @@
+<%= link_to "Log Out", session_path("current"), method: "delete" %>
+
+<h1> Edit Student</h1>
+<%= form_for (@students) do |f| %>
+		<% if @students.errors.any? %>
+		<div class="error_messages">
+			<h2>Form is Invalid</h2>
+			<ul>
+			<% @students.errors.full_messages.each do |message| %>
+			<li> <%= message %></li>
+			<% end %>
+			</ul>
+		</div>
+	<% end %>
+
+ 
+<div class="field">
+		<%= f.label :First_Name %><br />
+		<%= f.text_field :First_Name %>
+	</div>
+
+	<div class="field">
+		<%= f.label :Last_Name %><br />
+		<%= f.text_field :Last_Name %>
+	</div>
+
+
+	<div class="field">
+		<%= f.label :Sex%><br />
+		<%= f.select(:Sex, options_for_select([['Male','Male'], ['Female','Female']])) %>
+	</div>
+
+
+	<div class="field">
+		<%= f.label :Entrance_Age %><br />
+		<%= f.text_field :Entrance_Age %>
+	</div>
+
+	<div class="field">
+		<%= f.label :Entrance_Year %><br />
+		<%= f.text_field :Entrance_Year %>
+	</div>
+
+	<div class="field">
+		<%= f.label :Student_Class %><br />
+		<%= f.text_field :s_class %>
+	</div>
+
+
+	<div class="actions"><%= f.submit "Save Changes" %></div>
+<% end %>

@@ -1,0 +1,25 @@
+<table>
+	<tr>
+		<th> Course</th>
+		<th> Credit</th>
+		<th> Grade</th>
+		<th> Cancelled Year</th>
+
+	</tr>
+
+	<% @courses.each do |course| %>
+		<tr>
+			<td><%= course.Course %></td>
+			<td><%= course.Credit %></td>
+			<td><%= course.Grade %></td>
+			<td><%= course.Cancelled_Year %></td>
+
+			
+			<td><%= link_to 'Edit', edit_course_path(course) %></td>
+			<td><%= link_to 'Delete', course, confirm: 'Are you sure?', method: :delete %></td>
+		</tr>
+		<% end %>
+
+
+		 <%= link_to "Add teacher", new_course_path %>
+</table>

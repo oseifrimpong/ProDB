@@ -1,0 +1,37 @@
+<h1>Add a Course</h1>
+
+<%= form_for @courses do |f| %>
+	<% if @courses.errors.any? %>
+		<div class="error_messages">
+			<h2> Form is invalid</h2>
+			<ul>
+			<% @courses.errors.full_messages.each do |message| %>
+			<li> <%= message %></li>
+			<% end %>
+			</ul>
+		</div>
+	<% end %>
+
+		<div class="field">
+		<%= f.label :Course %><br />
+		<%= f.text_field :Course %>
+	</div>
+
+	<div class="field">
+		<%= f.label :Credit %><br />
+		<%= f.text_field :Credit %>
+	</div>
+
+	<div class="field">
+		<%= f.label :Grade %><br />
+		<%= f.text_field :Grade %>
+	</div>
+
+	<div class="field">
+		<%= f.label :Cancelled_Year %><br />
+		<%= f.text_field :Cancelled_Year %>
+	</div>
+
+	<div class="actions"><%= f.submit %> </div>
+
+<% end %>

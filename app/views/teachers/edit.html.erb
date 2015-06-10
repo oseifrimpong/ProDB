@@ -1,0 +1,27 @@
+<h1> Edit Teacher</h1>
+
+<%= form_for @teachers do |f| %>
+	<% if @teachers.errors.any? %>
+		<div class="error_messages">
+			<h2> Form is invalid</h2>
+			<ul>
+			<% @teachers.errors.full_messages.each do |message| %>
+			<li> <%= message %></li>
+			<% end %>
+			</ul>
+		</div>
+	<% end %>
+
+	<div class="field">
+		<%= f.label :First_Name %><br />
+		<%= f.text_field :First_Name %>
+	</div>
+
+	<div class="field">
+		<%= f.label :Last_Name %><br />
+		<%= f.text_field :Last_Name %>
+	</div>
+
+
+	<div class="actions"><%= f.submit "Save Changes" %></div>
+<% end %>
