@@ -11,10 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150605221424) do
+ActiveRecord::Schema.define(version: 20150618084942) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "choosens", force: :cascade do |t|
+    t.string   "choosenyear"
+    t.string   "score"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
 
   create_table "courses", force: :cascade do |t|
     t.string   "Course"
@@ -26,7 +33,7 @@ ActiveRecord::Schema.define(version: 20150605221424) do
   end
 
   create_table "students", force: :cascade do |t|
-    t.string   "First_Name"
+    t.string   "fname"
     t.string   "Last_Name"
     t.string   "Sex"
     t.string   "Entrance_Age"
@@ -37,7 +44,7 @@ ActiveRecord::Schema.define(version: 20150605221424) do
   end
 
   create_table "teachers", force: :cascade do |t|
-    t.string   "First_Name"
+    t.string   "fname"
     t.string   "Last_Name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

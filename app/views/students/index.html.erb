@@ -1,12 +1,13 @@
  <%= link_to "Log Out", session_path("current"), method: "delete" %>
 
  
- <% form_tag students_path, :method => 'get' do %>
- 	<p>
-	 	<%= text_field_tag (:search, params[:search]) %>
-	 	<%= submit_tag( "Search", :name => nil) %>
- 	</p>
- 	<% end %>
+ <%= form_tag students_path, :method => 'get' do %>
+ 	
+	 	<%= text_field_tag :search, params[:search] %>
+	 	<%= submit_tag "Search", :name => nil %>
+ 
+ <% end %>
+ 	
 			<h1>Student List</h1>
 
 <table>
@@ -19,9 +20,9 @@
 		<th> Class</th>
 	</tr>
 
-	<% @students.each do |student| %>
+	<%= @students.find_each do |student| %>
 		<tr>
-			<td><%= student.First_Name %></td>
+			<td><%= student.fname %></td>
 			<td><%= student.Last_Name %></td>
 			<td><%= student.Sex %></td>
 			<td><%= student.Entrance_Age %></td>
@@ -35,3 +36,5 @@
 
 		 <%= link_to "Add Student", new_student_path %>
 </table>
+
+

@@ -22,7 +22,7 @@ class TeachersController < ApplicationController
 	end
 
 	def index
-		@teachers = Teacher.all
+		@teachers = Teacher.search(params[:search])
 	end
 
 	def destroy
@@ -41,6 +41,6 @@ class TeachersController < ApplicationController
 
 private 
 	def teach_params
-		params.require(:teacher).permit(:First_Name, :Last_Name )
+		params.require(:teacher).permit(:fname, :Last_Name )
 	end
 end

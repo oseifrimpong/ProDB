@@ -1,3 +1,11 @@
+
+<%= form_tag teachers_path, :method => 'get' do %>
+ 	
+	 	<%= text_field_tag :search, params[:search] %>
+	 	<%= submit_tag "Search", :name => nil %>
+ 
+ <% end %>
+
 <table>
 	<tr>
 		<th> First Name</th>
@@ -6,7 +14,7 @@
 
 	<% @teachers.each do |teacher| %>
 		<tr>
-			<td><%= teacher.First_Name %></td>
+			<td><%= teacher.fname %></td>
 			<td><%= teacher.Last_Name %></td>
 			
 			<td><%= link_to 'Edit', edit_teacher_path(teacher) %></td>

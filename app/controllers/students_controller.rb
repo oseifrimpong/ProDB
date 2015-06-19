@@ -20,13 +20,9 @@ class StudentsController < ApplicationController
 
 	def index
 		session[:user_id] = @user_id
-			if params[:search]
-				@students = Student.find(:all, :conditions => ['First_Name LIKE ?', "%#{search}%"])
-		  	else
-		    	@students = Student.all
-			
+
+				@students = Student.search(params[:search])
 		end
-	end
 
 
 	def edit 
@@ -50,6 +46,6 @@ class StudentsController < ApplicationController
 
 	private
 		def student_params
-			params.require(:student).permit(:First_Name, :Last_Name, :Sex, :Entrance_Age, :Entrance_Year, :s_class)
+			params.require(:student).permit(:fname, :Last_Name, :Sex, :Entrance_Age, :Entrance_Year, :s_class)
 		end
 	end
